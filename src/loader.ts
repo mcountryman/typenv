@@ -1,3 +1,6 @@
+import { readFile } from "fs/promises";
+import { readFileSync } from "fs";
+
 export interface IConfigLoader {
   load(fileName: string): Promise<string>;
   loadSync(fileName: string): string;
@@ -6,11 +9,11 @@ export interface IConfigLoader {
 export class ConfigLoader implements IConfigLoader {
   constructor() {}
 
-  public async load(fileName: string): Promise<string> {
-    throw new Error("Not implemented");
-  }
+  public load(fileName: string) {
+    return readFile(fileName, "utf8")
+  };
 
   public loadSync(fileName: string): string {
-    throw new Error("Not implemented");
+    return readFileSync(fileName, "utf8");
   }
 }
