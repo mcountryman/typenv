@@ -4,14 +4,14 @@ import {
   ConfigPathResolver,
   IConfigPathResolver,
   IConfigPathResolverOptions
-} from "./resolver_path";
+} from "./resolve_path";
 import { ConfigReflector, IConfigReflector } from "./reflect";
 import { EnvResolver, IEnvResolver } from "./resolve_env";
 
 export * from "./loader";
 export * from "./parser";
 export * from "./reflect";
-export * from "./resolver_path";
+export * from "./resolve_path";
 
 export interface IConfigOptions extends
   IConfigParserOptions,
