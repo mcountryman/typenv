@@ -3,12 +3,12 @@ import { EnvResolver } from "./resolve_env";
 describe("EnvResolver", () => {
   it
     .each([
-      { in: "yes", type: "boolean", expected: true },
-      { in: "true", type: "boolean", expected: true },
-      { in: "false", type: "boolean", expected: false },
-      { in: "test", type: "string", expected: "test" },
-      { in: "420.69", type: "number", expected: 420.69 },
-      { in: "[420.69]", type: "any", expected: [420.69] },
+      { in: "yes", type: Boolean, expected: true },
+      { in: "true", type: Boolean, expected: true },
+      { in: "false", type: Boolean, expected: false },
+      { in: "test", type: String, expected: "test" },
+      { in: "420.69", type: Number, expected: 420.69 },
+      { in: "[420.69]", type: null, expected: [420.69] },
     ])
     ("Should resolve values", test => {
       const name = "ENV_NAME";

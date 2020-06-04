@@ -1,16 +1,16 @@
 
 export interface IEnvResolver {
-  tryGetValue(name: string, typeName: string): [boolean, any];
+  tryGetValue(name: string, type: any): [boolean, any];
 }
 
 export class EnvResolver implements IEnvResolver {
   constructor(private readonly _env: { [index: string]: any } = process.env) {}
 
-  public tryGetValue(name: string, typeName: string): [boolean, any] {
-    switch (typeName) {
-      case "number": return this.getNumber(name);
-      case "string": return this.getString(name);
-      case "boolean": return this.getBoolean(name);
+  public tryGetValue(name: string, type: any): [boolean, any] {
+    switch (type) {
+      case Number: return this.getNumber(name);
+      case String: return this.getString(name);
+      case Boolean: return this.getBoolean(name);
       default: return this.getJson(name);
     }
   }
