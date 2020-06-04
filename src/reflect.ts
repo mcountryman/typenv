@@ -3,8 +3,8 @@ export const EnvProperty = (envName: string, defaultValue: any) => {};
 
 export interface IConfigReflector<TConfig> {
   create(): TConfig;
-  getEnvName(propertyName: string): string;
-  getEnvNames(): [string, string][];
+  getEnvName(obj: TConfig, propertyName: string): string;
+  getEnvNames(obj: TConfig): [string, string][];
 }
 
 export class ConfigReflector<TConfig> implements IConfigReflector<TConfig> {
@@ -14,6 +14,6 @@ export class ConfigReflector<TConfig> implements IConfigReflector<TConfig> {
     return new this._ctor();
   }
 
-  public getEnvName(propertyName: string): string { return ""; }
-  public getEnvNames(): [string, string][] { return []; }
+  public getEnvName(obj: TConfig, propertyName: string): string { throw new Error("Not implemented"); }
+  public getEnvNames(obj: TConfig): [string, string][] { throw new Error("Not implemented"); }
 }
