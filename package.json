@@ -1,0 +1,19 @@
+{
+  "name": "typenv",
+  "main": "index.js",
+  "author": "Marvin Countryman <me@maar.vin>",
+  "version": "0.0.1-alpha",
+  "license": "MIT",
+  "repository": "https://github.com/mcountryman/typenv",
+  "description": "Type safe environment configuration loader",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc ."
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.3"
+  }
+}
