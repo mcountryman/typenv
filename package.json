@@ -8,7 +8,7 @@
   "description": "Type safe environment configuration loader",
   "scripts": {
     "test": "jest",
-    "build": "tsc ."
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
@@ -20,5 +20,8 @@
   "jest": {
     "preset": "ts-jest",
     "testRegex": "_spec\\.ts$"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
   }
 }

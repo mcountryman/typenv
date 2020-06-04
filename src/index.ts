@@ -27,7 +27,7 @@ export const load = async <TConfig>(
   }
 
   const obj = reflector.create();
-  const props = reflector.getEnvNames(obj);
+  const props = reflector.getAllPropertyInfo(obj);
 
   for (let prop of props) {
     const type = "resolve type";
