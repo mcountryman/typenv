@@ -1,10 +1,6 @@
 import { ConfigLoader, IConfigLoader } from "./loader";
-import { ConfigParser, IConfigParser, IConfigParserOptions } from "./parser";
-import {
-  ConfigPathResolver,
-  IConfigPathResolver,
-  IConfigPathResolverOptions
-} from "./resolve_path";
+import { ConfigParser, IConfigParser } from "./parser";
+import { ConfigPathResolver, IConfigPathResolver } from "./resolve_path";
 import { ConfigReflector, IConfigReflector } from "./reflect";
 import { EnvResolver, IEnvResolver } from "./resolve_env";
 
@@ -13,21 +9,19 @@ export * from "./parser";
 export * from "./reflect";
 export * from "./resolve_path";
 
-export interface IConfigOptions extends
-  IConfigParserOptions,
-  IConfigPathResolverOptions {}
+export interface IConfigOptions {}
 
 export const load = async <TConfig>(
   ctor: { new(): TConfig },
   options: IConfigOptions,
   loader: IConfigLoader = new ConfigLoader(),
-  parser: IConfigParser = new ConfigParser(options),
+  parser: IConfigParser = new ConfigParser(),
   reflector: IConfigReflector<TConfig> = new ConfigReflector(ctor),
   envResolver: IEnvResolver = new EnvResolver(),
-  pathResolver: IConfigPathResolver = new ConfigPathResolver(options),
+  pathResolver: IConfigPathResolver = new ConfigPathResolver(),
 ): Promise<TConfig> => {
 
-  const [hasPath, path] = pathResolver.tryResolve();
+  const [hasPath, path] = await pathResolver.tryResolve();
   if (hasPath) {
     parser.parse(await loader.load(path));
   }
@@ -47,10 +41,10 @@ export const loadSync = <TConfig>(
   ctor: { new(): TConfig },
   options: IConfigOptions,
   loader: IConfigLoader = new ConfigLoader(),
-  parser: IConfigParser = new ConfigParser(options),
+  parser: IConfigParser = new ConfigParser(),
   reflector: IConfigReflector<TConfig> = new ConfigReflector(ctor),
   envResolver: IEnvResolver = new EnvResolver(),
-  pathResolver: IConfigPathResolver = new ConfigPathResolver(options),
+  pathResolver: IConfigPathResolver = new ConfigPathResolver(),
 ): TConfig => {
   throw new Error("Not implemented");
 };
