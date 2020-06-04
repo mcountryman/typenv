@@ -15,5 +15,9 @@
     "jest": "^26.0.1",
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.3"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testRegex": "_spec\\.ts$"
   }
 }

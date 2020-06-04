@@ -37,7 +37,7 @@ export const load = async <TConfig>(
 
   for (let prop of props) {
     const type = "resolve type";
-    obj[prop[1]] = envResolver.get(prop[0], type);
+    obj[prop[1]] = envResolver.tryGetValue(prop[0], type);
   }
 
   return obj;
