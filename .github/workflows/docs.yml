@@ -8,8 +8,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v1
 
       - uses: borales/actions-yarn@v2.0.0
         with:
@@ -19,9 +18,8 @@ jobs:
         with:
           cmd: doc
 
-      - name: Publish generated content to GitHub Pages
-        uses: tsunematsu21/actions-publish-gh-pages@v1.0.1
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          dir: docs
-          branch: gh-pages
-          token: ${{ secrets.ACCESS_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
