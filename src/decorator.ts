@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { ICustomMetadata } from "./metadata";
 
 export const KEY_METADATA_NAME = "typenv:key";

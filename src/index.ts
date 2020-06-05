@@ -1,8 +1,9 @@
 import { ConfigLoader, IConfigLoader } from "./loader";
 import { ConfigParser, IConfigParser } from "./parser";
 import { ConfigPathResolver, IConfigPathResolver } from "./resolve_path";
-import { ConfigReflector, IConfigReflector } from "./reflect";
+import { IConfigReflector } from "./reflect";
 import { EnvResolver, IEnvResolver } from "./resolve_env";
+import { ConfigReflector } from "./impl/config_reflector";
 
 export * from "./loader";
 export * from "./parser";

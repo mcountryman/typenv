@@ -1,5 +1,5 @@
-import { ConfigReflector } from "./reflect";
-import { Key } from "./decorator";
+import { Key } from "../decorator";
+import { ConfigReflector } from "./config_reflector";
 
 class TestConfig {
   @Key("STRING", "value")
