@@ -13,16 +13,41 @@ export interface IPropertyInfo extends ICustomPropertyInfo {
   propertyType: any,
 }
 
-export const ConfigProperty = (name: string, defaultValue: any = null, optional: boolean = false) => {
-  return Reflect.metadata(
-    CONFIG_PROPERTY_NAME,
-    { name, default: defaultValue, optional } as ICustomPropertyInfo
-  );
-};
+export const ConfigProperty =
+  (name: string, defaultValue: any = null, optional: boolean = false) =>
+    (target: any, propertyKey: string | symbol) => {
+      if (!defaultValue && !optional) {
+        const type = Reflect.getMetadata(
+          "design:type",
+          target,
+          propertyKey,
+        );
+
+        if (type?.call)
+          defaultValue = type();
+      }
+
+      if (!Object.getOwnPropertyDescriptor(target, propertyKey)) {
+        Object.defineProperty(
+          target,
+          propertyKey,
+          {
+            value: defaultValue,
+            writable: true,
+          },
+        );
+      }
+
+      Reflect.defineMetadata(
+        CONFIG_PROPERTY_NAME,
+        { name, default: defaultValue, optional } as ICustomPropertyInfo,
+        target,
+        propertyKey,
+      );
+    };
 
 export interface IConfigReflector<TConfig> {
   create(): TConfig;
-  getPropertyInfo(target: TConfig, propertyName: string): IPropertyInfo;
   getAllPropertyInfo(target: TConfig): IPropertyInfo[];
 }
 
@@ -33,7 +58,19 @@ export class ConfigReflector<TConfig> implements IConfigReflector<TConfig> {
     return new this._ctor();
   }
 
-  public getPropertyInfo(target: TConfig, propertyName: string): IPropertyInfo {
+  public getAllPropertyInfo(target: TConfig): IPropertyInfo[] {
+    const names = [
+      ...Object.getOwnPropertyNames(target),
+      ...Object.getOwnPropertyNames((target as any).__proto__ ?? {})
+    ];
+
+    return names
+      .filter(key => this._hasMetadata(target, key))
+      .map(key => this._getPropertyInfo(target, key))
+    ;
+  }
+
+  private _getPropertyInfo(target: TConfig, propertyName: string): IPropertyInfo {
     const info: ICustomPropertyInfo = Reflect.getMetadata(
       CONFIG_PROPERTY_NAME,
       target,
@@ -53,10 +90,7 @@ export class ConfigReflector<TConfig> implements IConfigReflector<TConfig> {
     }
   }
 
-  public getAllPropertyInfo(target: TConfig): IPropertyInfo[] {
-    return Object
-      .getOwnPropertyNames(target)
-      .map(key => this.getPropertyInfo(target, key))
-    ;
+  private _hasMetadata(target: TConfig, propertyKey: string) {
+    return Reflect.hasMetadata(CONFIG_PROPERTY_NAME, target, propertyKey);
   }
 }

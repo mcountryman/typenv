@@ -1,6 +1,6 @@
 {
   "name": "typenv",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "Marvin Countryman <me@maar.vin>",
   "version": "0.0.1-alpha",
   "license": "MIT",

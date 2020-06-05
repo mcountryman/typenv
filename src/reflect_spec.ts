@@ -10,19 +10,6 @@ class TestConfig {
 }
 
 describe("ConfigReflector", () => {
-  it("Should reflect property info", () => {
-    const reflector = new ConfigReflector(TestConfig);
-    const target = reflector.create();
-
-    const stringInfo = reflector.getPropertyInfo(target, "string");
-
-    expect(stringInfo.name).toBe("STRING");
-    expect(stringInfo.default).toBe("value");
-    expect(stringInfo.optional).not.toBeTruthy();
-    expect(stringInfo.propertyType).toBe(String);
-    expect(stringInfo.propertyName).toBe("string");
-  });
-
   it("Should reflect all property info", () => {
     const reflector = new ConfigReflector(TestConfig);
     const target = reflector.create();
@@ -33,7 +20,7 @@ describe("ConfigReflector", () => {
     };
 
     for (let info of reflector.getAllPropertyInfo(target)) {
-      const expected = expectedInfos[info.name];
+      const expected = expectedInfos[info.propertyName];
 
       expect(info.name).toBe(expected.name);
       expect(info.default).toBe(expected.default);

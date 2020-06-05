@@ -9,11 +9,8 @@ export * from "./parser";
 export * from "./reflect";
 export * from "./resolve_path";
 
-export interface IConfigOptions {}
-
 export const load = async <TConfig>(
   ctor: { new(): TConfig },
-  options: IConfigOptions,
   loader: IConfigLoader = new ConfigLoader(),
   parser: IConfigParser = new ConfigParser(),
   reflector: IConfigReflector<TConfig> = new ConfigReflector(ctor),
@@ -26,25 +23,57 @@ export const load = async <TConfig>(
     parser.parse(await loader.load(path));
   }
 
-  const obj = reflector.create();
-  const props = reflector.getAllPropertyInfo(obj);
-
-  for (let prop of props) {
-    const type = "resolve type";
-    obj[prop[1]] = envResolver.tryGetValue(prop[0], type);
-  }
-
-  return obj;
+  return loadConfig(
+    ctor,
+    parser,
+    reflector,
+    envResolver,
+  );
 };
 
 export const loadSync = <TConfig>(
   ctor: { new(): TConfig },
-  options: IConfigOptions,
   loader: IConfigLoader = new ConfigLoader(),
   parser: IConfigParser = new ConfigParser(),
   reflector: IConfigReflector<TConfig> = new ConfigReflector(ctor),
   envResolver: IEnvResolver = new EnvResolver(),
   pathResolver: IConfigPathResolver = new ConfigPathResolver(),
 ): TConfig => {
-  throw new Error("Not implemented");
+
+  const [hasPath, path] = pathResolver.tryResolveSync();
+  if (hasPath) {
+    parser.parse(loader.loadSync(path));
+  }
+
+  return loadConfig(
+    ctor,
+    parser,
+    reflector,
+    envResolver,
+  );
 };
+
+function loadConfig<TConfig>(
+  ctor: { new(): TConfig },
+  parser: IConfigParser = new ConfigParser(),
+  reflector: IConfigReflector<TConfig> = new ConfigReflector(ctor),
+  envResolver: IEnvResolver = new EnvResolver(),
+) {
+
+  const obj = reflector.create();
+  const infos = reflector.getAllPropertyInfo(obj);
+
+  for (let info of infos) {
+    const [hasValue, value] = envResolver.tryGetValue(info.name, info.propertyType);
+    if (!hasValue) {
+      if (!info.optional)
+        throw new Error(`Missing config option ${info.name}`);
+
+      continue;
+    }
+
+    obj[info.propertyName] = value;
+  }
+
+  return obj;
+}
