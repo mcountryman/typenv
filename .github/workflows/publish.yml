@@ -23,7 +23,7 @@ jobs:
           node-version: '12'
       - run: yarn
       - run: yarn build
-      - run: yarn publish --new-version ${{ steps.tags.outputs.result }}
+      - run: yarn publish --new-version '${{ steps.tag.outputs.result }}'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
