@@ -1,4 +1,4 @@
-import { ICustomMetadata } from "./reflect";
+import { ICustomMetadata } from "./metadata";
 
 export const KEY_METADATA_NAME = "typenv:key";
 
@@ -16,7 +16,7 @@ export const Key =
       // define metadata
       Reflect.defineMetadata(
         KEY_METADATA_NAME,
-        { key, default: defaultValue, optional } as ICustomPropertyInfo,
+        { key, default: defaultValue, optional } as ICustomMetadata,
         target,
         propertyKey,
       );
