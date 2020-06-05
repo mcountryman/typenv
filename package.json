@@ -4,7 +4,7 @@
   "author": "Marvin Countryman <me@maar.vin>",
   "version": "0.0.2",
   "license": "MIT",
-  "homepage": "https://www.npmjs.com/package/typenv",
+  "homepage": "https://mcountryman.github.io/typenv/",
   "repository": "https://github.com/mcountryman/typenv",
   "description": "Type safe environment configuration loader",
   "files": [
