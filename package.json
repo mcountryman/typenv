@@ -7,7 +7,7 @@
   "repository": "https://github.com/mcountryman/typenv",
   "description": "Type safe environment configuration loader",
   "scripts": {
-    "doc": "typedoc --theme minimal --out docs src",
+    "doc": "typedoc --out docs --exclude '**/*_spec.ts' src",
     "test": "jest",
     "build": "tsc"
   },
