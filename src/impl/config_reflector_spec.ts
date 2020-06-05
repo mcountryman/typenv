@@ -13,14 +13,13 @@ class TestConfig {
 describe("ConfigReflector", () => {
   it("Should reflect all property info", () => {
     const reflector = new ConfigReflector(TestConfig);
-    const target = reflector.create();
     const expectedInfos = {
       "number": { name: "NUMBER", default: 420.69, propertyType: Number, },
       "string": { name: "STRING", default: "value", propertyType: String, },
       "boolean": { name: "BOOLEAN", default: true, propertyType: Boolean, },
     };
 
-    for (let info of reflector.getMetadata(target)) {
+    for (let info of reflector.getAllMetadata()) {
       const expected = expectedInfos[info.propertyName];
 
       expect(info.key).toBe(expected.name);

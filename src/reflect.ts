@@ -1,7 +1,36 @@
 import "reflect-metadata";
-import { IMetadata } from "./metadata";
 
-export interface IConfigReflector<TConfig> {
-  create(): TConfig;
-  getMetadata(target: TConfig): IMetadata[];
+export interface ICustomMetadata {
+  /**
+   * Configuration property key name
+   */
+  key: string,
+  /**
+   * Default value
+   */
+  default: any,
+  /**
+   * Is property optional
+   */
+  optional: boolean,
+}
+
+export interface IMetadata extends ICustomMetadata {
+  /**
+   * Property name
+   */
+  propertyName: string,
+  /**
+   * Property type
+   */
+  propertyType: any,
+}
+
+
+export interface IConfigReflector {
+  target: any;
+  setProperty<TValue = any>(propertyName: string, value: TValue);
+  getProperties(): string[];
+  getMetadata(propertyName: string): IMetadata;
+  getAllMetadata(): IMetadata[];
 }

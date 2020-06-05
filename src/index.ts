@@ -15,7 +15,7 @@ export const load = async <TConfig>(
   ctor: { new(): TConfig },
   loader: IConfigLoader = new ConfigLoader(),
   parser: IConfigParser = new ConfigParser(),
-  reflector: IConfigReflector<TConfig> = new ConfigReflector(ctor),
+  reflector: IConfigReflector = new ConfigReflector(ctor),
   envResolver: IEnvResolver = new EnvResolver(),
   pathResolver: IConfigPathResolver = new ConfigPathResolver(),
 ): Promise<TConfig> => {
@@ -37,7 +37,7 @@ export const loadSync = <TConfig>(
   ctor: { new(): TConfig },
   loader: IConfigLoader = new ConfigLoader(),
   parser: IConfigParser = new ConfigParser(),
-  reflector: IConfigReflector<TConfig> = new ConfigReflector(ctor),
+  reflector: IConfigReflector = new ConfigReflector(ctor),
   envResolver: IEnvResolver = new EnvResolver(),
   pathResolver: IConfigPathResolver = new ConfigPathResolver(),
 ): TConfig => {
@@ -58,12 +58,11 @@ export const loadSync = <TConfig>(
 function loadConfig<TConfig>(
   ctor: { new(): TConfig },
   parser: IConfigParser = new ConfigParser(),
-  reflector: IConfigReflector<TConfig> = new ConfigReflector(ctor),
+  reflector: IConfigReflector = new ConfigReflector(ctor),
   envResolver: IEnvResolver = new EnvResolver(),
 ) {
 
-  const obj = reflector.create();
-  const infos = reflector.getMetadata(obj);
+  const infos = reflector.getAllMetadata();
 
   for (let info of infos) {
     const [hasValue, value] = envResolver.tryGetValue(info.key, info.propertyType);
@@ -74,8 +73,8 @@ function loadConfig<TConfig>(
       continue;
     }
 
-    obj[info.propertyName] = value;
+    reflector.setProperty(info.propertyName, value);
   }
 
-  return obj;
+  return reflector.target;
 }

@@ -1,36 +1,37 @@
-import { ICustomMetadata, IMetadata } from "../metadata";
 import { KEY_METADATA_NAME } from "../decorator";
-import { IConfigReflector } from "../reflect";
+import { IConfigReflector, ICustomMetadata, IMetadata } from "../reflect";
 
-export class ConfigReflector<TConfig> implements IConfigReflector<TConfig> {
-  constructor(private readonly _ctor: { new(): TConfig }) {}
-
-  public create(): TConfig {
-    return new this._ctor();
+export class ConfigReflector<TConfig> implements IConfigReflector {
+  public get target(): any {
+    return this._target;
   }
 
-  public getMetadata(target: TConfig): IMetadata[] {
-    const names = [
-      ...Object.getOwnPropertyNames(target),
-      ...Object.getOwnPropertyNames((target as any).__proto__ ?? {})
-    ];
+  constructor(
+    ctor: { new(): TConfig },
+    private readonly _target: TConfig = new ctor(),
+  ) {}
 
-    return names
-      .filter(key => this._hasMetadata(target, key))
-      .map(key => this._getPropertyInfo(target, key))
-      ;
+  public getProperties(): string[] {
+    return [
+      ...Object.getOwnPropertyNames(this._target),
+      ...Object.getOwnPropertyNames((this._target as any).__proto__ ?? {})
+    ].filter(key => this._hasMetadata(this._target, key));
   }
 
-  private _getPropertyInfo(target: TConfig, propertyName: string): IMetadata {
+  public setProperty<TValue = any>(propertyName: string, value: TValue) {
+    this._target[propertyName] = value;
+  }
+
+  public getMetadata(propertyName: string): IMetadata {
     const info: ICustomMetadata = Reflect.getMetadata(
       KEY_METADATA_NAME,
-      target,
+      this._target,
       propertyName,
     );
 
     const propertyType: any = Reflect.getMetadata(
       "design:type",
-      target,
+      this._target,
       propertyName,
     );
 
@@ -39,6 +40,12 @@ export class ConfigReflector<TConfig> implements IConfigReflector<TConfig> {
       propertyType,
       propertyName,
     }
+  }
+
+  public getAllMetadata(): IMetadata[] {
+    return this
+      .getProperties()
+      .map(key => this.getMetadata(key));
   }
 
   private _hasMetadata(target: TConfig, propertyKey: string) {
