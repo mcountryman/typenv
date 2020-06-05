@@ -21,6 +21,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12'
+          registry-url: 'https://registry.npmjs.org'
       - run: yarn
       - run: yarn build
       - run: yarn publish --new-version ${{ steps.tag.outputs.result }}
