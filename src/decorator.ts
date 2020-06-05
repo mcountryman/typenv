@@ -1,4 +1,4 @@
-import { ICustomPropertyInfo } from "./reflect";
+import { ICustomMetadata } from "./reflect";
 
 export const KEY_METADATA_NAME = "typenv:key";
 

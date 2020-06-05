@@ -1,20 +1,10 @@
 import "reflect-metadata";
 import { KEY_METADATA_NAME } from "./decorator";
-
-export interface ICustomPropertyInfo {
-  key: string,
-  default: any,
-  optional: boolean,
-}
-
-export interface IPropertyInfo extends ICustomPropertyInfo {
-  propertyName: string,
-  propertyType: any,
-}
+import { ICustomMetadata, IMetadata } from "./metadata";
 
 export interface IConfigReflector<TConfig> {
   create(): TConfig;
-  getAllPropertyInfo(target: TConfig): IPropertyInfo[];
+  getAllPropertyInfo(target: TConfig): IMetadata[];
 }
 
 export class ConfigReflector<TConfig> implements IConfigReflector<TConfig> {
@@ -24,7 +14,7 @@ export class ConfigReflector<TConfig> implements IConfigReflector<TConfig> {
     return new this._ctor();
   }
 
-  public getAllPropertyInfo(target: TConfig): IPropertyInfo[] {
+  public getAllPropertyInfo(target: TConfig): IMetadata[] {
     const names = [
       ...Object.getOwnPropertyNames(target),
       ...Object.getOwnPropertyNames((target as any).__proto__ ?? {})
@@ -36,8 +26,8 @@ export class ConfigReflector<TConfig> implements IConfigReflector<TConfig> {
     ;
   }
 
-  private _getPropertyInfo(target: TConfig, propertyName: string): IPropertyInfo {
-    const info: ICustomPropertyInfo = Reflect.getMetadata(
+  private _getPropertyInfo(target: TConfig, propertyName: string): IMetadata {
+    const info: ICustomMetadata = Reflect.getMetadata(
       KEY_METADATA_NAME,
       target,
       propertyName,
