@@ -23,6 +23,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
   build:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - uses: borales/actions-yarn@v2.0.0
