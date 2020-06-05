@@ -1,9 +1,8 @@
 import "reflect-metadata";
-
-const CONFIG_PROPERTY_NAME = "typenv:config";
+import { KEY_METADATA_NAME } from "./decorator";
 
 export interface ICustomPropertyInfo {
-  name: string,
+  key: string,
   default: any,
   optional: boolean,
 }
@@ -12,39 +11,6 @@ export interface IPropertyInfo extends ICustomPropertyInfo {
   propertyName: string,
   propertyType: any,
 }
-
-export const ConfigProperty =
-  (name: string, defaultValue: any = null, optional: boolean = false) =>
-    (target: any, propertyKey: string | symbol) => {
-      if (!defaultValue && !optional) {
-        const type = Reflect.getMetadata(
-          "design:type",
-          target,
-          propertyKey,
-        );
-
-        if (type?.call)
-          defaultValue = type();
-      }
-
-      if (!Object.getOwnPropertyDescriptor(target, propertyKey)) {
-        Object.defineProperty(
-          target,
-          propertyKey,
-          {
-            value: defaultValue,
-            writable: true,
-          },
-        );
-      }
-
-      Reflect.defineMetadata(
-        CONFIG_PROPERTY_NAME,
-        { name, default: defaultValue, optional } as ICustomPropertyInfo,
-        target,
-        propertyKey,
-      );
-    };
 
 export interface IConfigReflector<TConfig> {
   create(): TConfig;
@@ -72,7 +38,7 @@ export class ConfigReflector<TConfig> implements IConfigReflector<TConfig> {
 
   private _getPropertyInfo(target: TConfig, propertyName: string): IPropertyInfo {
     const info: ICustomPropertyInfo = Reflect.getMetadata(
-      CONFIG_PROPERTY_NAME,
+      KEY_METADATA_NAME,
       target,
       propertyName,
     );
@@ -91,6 +57,6 @@ export class ConfigReflector<TConfig> implements IConfigReflector<TConfig> {
   }
 
   private _hasMetadata(target: TConfig, propertyKey: string) {
-    return Reflect.hasMetadata(CONFIG_PROPERTY_NAME, target, propertyKey);
+    return Reflect.hasMetadata(KEY_METADATA_NAME, target, propertyKey);
   }
 }

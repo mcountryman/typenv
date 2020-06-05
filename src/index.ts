@@ -8,6 +8,7 @@ export * from "./loader";
 export * from "./parser";
 export * from "./reflect";
 export * from "./resolve_path";
+export * from "./decorator";
 
 export const load = async <TConfig>(
   ctor: { new(): TConfig },
@@ -64,10 +65,10 @@ function loadConfig<TConfig>(
   const infos = reflector.getAllPropertyInfo(obj);
 
   for (let info of infos) {
-    const [hasValue, value] = envResolver.tryGetValue(info.name, info.propertyType);
+    const [hasValue, value] = envResolver.tryGetValue(info.key, info.propertyType);
     if (!hasValue) {
       if (!info.optional)
-        throw new Error(`Missing config option ${info.name}`);
+        throw new Error(`Missing config option ${info.key}`);
 
       continue;
     }

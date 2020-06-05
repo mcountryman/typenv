@@ -1,11 +1,12 @@
-import { ConfigProperty, ConfigReflector } from "./reflect";
+import { ConfigReflector } from "./reflect";
+import { Key } from "./decorator";
 
 class TestConfig {
-  @ConfigProperty("STRING", "value")
+  @Key("STRING", "value")
   public string: string;
-  @ConfigProperty("NUMBER", 420.69)
+  @Key("NUMBER", 420.69)
   public number: number;
-  @ConfigProperty("BOOLEAN", true)
+  @Key("BOOLEAN", true)
   public boolean: boolean;
 }
 
@@ -22,7 +23,7 @@ describe("ConfigReflector", () => {
     for (let info of reflector.getAllPropertyInfo(target)) {
       const expected = expectedInfos[info.propertyName];
 
-      expect(info.name).toBe(expected.name);
+      expect(info.key).toBe(expected.name);
       expect(info.default).toBe(expected.default);
       expect(info.propertyType).toBe(expected.propertyType);
     }

@@ -1,14 +1,14 @@
 import { fs, vol } from "memfs";
+import { Key, loadSync } from "./index";
+
 jest.mock("fs", () => fs);
 jest.mock("fs/promises", () => fs.promises);
-import { ConfigProperty } from "./reflect";
-import { load, loadSync } from "./index";
 
 class CustomConfig {
-  @ConfigProperty("TEST_STRING")
+  @Key("TEST_STRING")
   public string: string;
-  @ConfigProperty("TEST_NUMBER")
-  public number: number;
+  @Key("TEST_NUMBER")
+  public number?: number;
 }
 
 describe("typenv", () => {
