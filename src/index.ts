@@ -63,7 +63,7 @@ function loadConfig<TConfig>(
 ) {
 
   const obj = reflector.create();
-  const infos = reflector.getAllPropertyInfo(obj);
+  const infos = reflector.getMetadata(obj);
 
   for (let info of infos) {
     const [hasValue, value] = envResolver.tryGetValue(info.key, info.propertyType);

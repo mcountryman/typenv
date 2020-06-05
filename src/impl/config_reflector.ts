@@ -9,7 +9,7 @@ export class ConfigReflector<TConfig> implements IConfigReflector<TConfig> {
     return new this._ctor();
   }
 
-  public getAllPropertyInfo(target: TConfig): IMetadata[] {
+  public getMetadata(target: TConfig): IMetadata[] {
     const names = [
       ...Object.getOwnPropertyNames(target),
       ...Object.getOwnPropertyNames((target as any).__proto__ ?? {})

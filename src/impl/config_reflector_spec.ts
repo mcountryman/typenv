@@ -20,7 +20,7 @@ describe("ConfigReflector", () => {
       "boolean": { name: "BOOLEAN", default: true, propertyType: Boolean, },
     };
 
-    for (let info of reflector.getAllPropertyInfo(target)) {
+    for (let info of reflector.getMetadata(target)) {
       const expected = expectedInfos[info.propertyName];
 
       expect(info.key).toBe(expected.name);
