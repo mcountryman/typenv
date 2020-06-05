@@ -1,4 +1,6 @@
 # typenv
+[![codecov](https://codecov.io/gh/mcountryman/typenv/branch/master/graph/badge.svg)](https://codecov.io/gh/mcountryman/typenv)
+
 Typenv intends to provide .env configuration with type safety in mind.
 
 ## Installation
