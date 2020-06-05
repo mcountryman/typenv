@@ -9,19 +9,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: build
-      - name: Extract tag name
+      - name: Extract version
         id: tag
         uses: actions/github-script@0.2.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             return context.payload.ref.replace(/refs\/tags\/v/, '');
-      - uses: borales/actions-yarn@v2.0.0
+
+      - name: Publish npm
+        uses: actions/setup-node@v1
         with:
-          cmd: publish --new-version ${{ steps.tag.outputs.result }}
+          node-version: '12'
+      - run: yarn
+      - run: yarn build
+      - run: yarn publish --new-version ${{ steps.tags.outputs.result }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish github
+        uses: actions/setup-node@v1
+        with:
+          registry-url: 'https://npm.pkg.github.com'
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
