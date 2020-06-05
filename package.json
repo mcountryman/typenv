@@ -2,19 +2,27 @@
   "name": "typenv",
   "main": "dist/index.js",
   "author": "Marvin Countryman <me@maar.vin>",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
+  "homepage": "https://www.npmjs.com/package/typenv",
   "repository": "https://github.com/mcountryman/typenv",
   "description": "Type safe environment configuration loader",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "doc": "typedoc",
     "test": "jest",
-    "build": "tsc"
+    "build": "rimraf ./dist && tsc"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
     "jest": "^26.0.1",
     "memfs": "^3.2.0",
+    "rimraf": "^3.0.2",
     "ts-jest": "^26.1.0",
     "typedoc": "^0.17.7",
     "typescript": "^3.9.3"
@@ -22,8 +30,5 @@
   "jest": {
     "preset": "ts-jest",
     "testRegex": "_spec\\.ts$"
-  },
-  "dependencies": {
-    "reflect-metadata": "^0.1.13"
   }
 }
