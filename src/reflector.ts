@@ -29,16 +29,8 @@ export interface IMetadata extends ICustomMetadata {
   propertyType: any;
 }
 
-export interface IReflector {
-  target: any;
-  getProperties(): string[];
-  setProperty<TValue = any>(property: string | IMetadata, value: TValue);
-  getMetadata(propertyName: string): IMetadata;
-  getAllMetadata(): IMetadata[];
-}
-
-export class Reflector<TConfig> implements IReflector {
-  public get target(): any {
+export class Reflector<TConfig = any> {
+  public get target(): TConfig {
     return this._target;
   }
 

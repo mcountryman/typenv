@@ -1,11 +1,11 @@
-import { IReflector } from "./reflector";
+import { Reflector } from "./reflector";
 import { IDotEnvLoaderOptions } from "./loaders/dotenv/options";
 
 export type LoaderOptions = IDotEnvLoaderOptions;
 
 export interface IConfigLoader {
-  load(reflector: IReflector): Promise<void>;
-  loadSync(reflector: IReflector): void;
+  load(reflector: Reflector): Promise<void>;
+  loadSync(reflector: Reflector): void;
 }
 
 export const createLoader = (options: LoaderOptions): IConfigLoader => {

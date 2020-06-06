@@ -1,5 +1,5 @@
 import { IConfigLoader } from "../../loader";
-import { IReflector, IMetadata } from "../../reflector";
+import { Reflector, IMetadata } from "../../reflector";
 import { DotEnvParser } from "./parser";
 import { join } from "path";
 import { readFile } from "fs/promises";
@@ -15,15 +15,15 @@ export class DotEnvLoader implements IConfigLoader {
     private readonly _envParser: DotEnvParser = new DotEnvParser()
   ) {}
 
-  public async load(reflector: IReflector) {
-    this._loadFromValues(reflector, await this._getValues());
+  public async load(reflector: Reflector) {
+    this.loadFromValues(reflector, await this.getValues());
   }
 
-  public loadSync(reflector: IReflector) {
-    this._loadFromValues(reflector, this._getValuesSync());
+  public loadSync(reflector: Reflector) {
+    this.loadFromValues(reflector, this.getValuesSync());
   }
 
-  private async _getValues(): Promise<any> {
+  public async getValues(): Promise<any> {
     try {
       const content = await readFile(this._envPath, "utf8");
       return this._envParser.parse(content);
@@ -35,7 +35,7 @@ export class DotEnvLoader implements IConfigLoader {
     return {};
   }
 
-  private _getValuesSync(): any {
+  public getValuesSync(): any {
     try {
       const content = readFileSync(this._envPath, "utf8");
       return this._envParser.parse(content);
@@ -47,16 +47,26 @@ export class DotEnvLoader implements IConfigLoader {
     return {};
   }
 
-  private _loadFromValues(reflector: IReflector, values: any) {
+  public loadFromValues(reflector: Reflector, values: any) {
     for (let meta of reflector.getAllMetadata()) {
       const value = values[meta.key] ?? this._env[meta.key];
 
       if (value !== undefined)
-        this._setProperty(reflector, meta, value);
+        reflector.setProperty(meta, this.getValue(meta, value));
     }
   }
 
-  private _setProperty(reflector: IReflector, meta: IMetadata, value: string) {
-    reflector.setProperty(meta, value);
+  public getValue(meta: IMetadata, value: string) {
+    switch (meta.propertyType) {
+      case Date:
+        return new Date(value);
+      case Number:
+        return parseFloat(value);
+      case String:
+        // TODO: Parse quotes
+        return value;
+      default:
+        return JSON.parse(value);
+    }
   }
 }
