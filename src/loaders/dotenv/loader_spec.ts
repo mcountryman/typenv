@@ -27,8 +27,14 @@ describe("DotEnvLoader", () => {
     const dateExpected = loader.getValue(dateMeta, dateActual.toString());
     const stringExpected = loader.getValue(stringMeta, stringActual.toString());
     const numberExpected = loader.getValue(numberMeta, numberActual.toString());
-    const arrayExpected = loader.getValue(arrayMeta, JSON.stringify(arrayActual));
-    const objectExpected = loader.getValue(objectMeta, JSON.stringify(objectActual));
+    const arrayExpected = loader.getValue(
+      arrayMeta,
+      JSON.stringify(arrayActual)
+    );
+    const objectExpected = loader.getValue(
+      objectMeta,
+      JSON.stringify(objectActual)
+    );
 
     expect(dateActual).toBe(dateExpected);
     expect(stringActual).toBe(stringExpected);

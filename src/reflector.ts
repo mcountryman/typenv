@@ -35,7 +35,7 @@ export class Reflector<TConfig = any> {
   }
 
   constructor(
-    ctor: { new (): TConfig },
+    ctor: new () => TConfig,
     private readonly _target: TConfig = new ctor()
   ) {}
 

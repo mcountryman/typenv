@@ -31,8 +31,7 @@ export class DotEnvLoader implements IConfigLoader {
       const content = await readFile(this._envPath, "utf8");
       return this._envParser.parse(content);
     } catch (ex) {
-      if (this._options.required)
-        throw ex;
+      if (this._options.required) throw ex;
     }
 
     return {};
@@ -46,8 +45,7 @@ export class DotEnvLoader implements IConfigLoader {
       const content = readFileSync(this._envPath, "utf8");
       return this._envParser.parse(content);
     } catch (ex) {
-      if (this._options.required)
-        throw ex;
+      if (this._options.required) throw ex;
     }
 
     return {};
@@ -59,7 +57,7 @@ export class DotEnvLoader implements IConfigLoader {
    * @param values
    */
   public loadFromValues(reflector: Reflector, values: any) {
-    for (let meta of reflector.getAllMetadata()) {
+    for (const meta of reflector.getAllMetadata()) {
       const value = values[meta.key] ?? this._env[meta.key];
 
       if (value !== undefined)

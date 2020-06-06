@@ -4,7 +4,6 @@ import { Key, loadSync } from "./index";
 jest.mock("fs", () => fs);
 jest.mock("fs/promises", () => fs.promises);
 
-
 class CustomConfig {
   @Key("TEST_STRING")
   public string: string;

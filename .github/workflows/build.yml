@@ -8,15 +8,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: actions/setup-node@v1
         with:
-          cmd: install
-
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: test --ci --coverage
+          always-auth: true
+          node-version: 13.x
+          registry-url: 'https://registry.npmjs.org'
+      - run: yarn
+      - run: yarn build
+      - run: yarn lint
+      - run: yarn test --ci --coverage
 
       - uses: codecov/codecov-action@v1
         with:

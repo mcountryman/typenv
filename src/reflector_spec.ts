@@ -19,7 +19,7 @@ describe("Reflector", () => {
       boolean: { name: "BOOLEAN", default: true, propertyType: Boolean },
     };
 
-    for (let info of reflector.getAllMetadata()) {
+    for (const info of reflector.getAllMetadata()) {
       const expected = expectedInfos[info.propertyName];
 
       expect(info.key).toBe(expected.name);
