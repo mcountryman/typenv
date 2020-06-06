@@ -16,17 +16,35 @@ export class DotEnvLoader implements IConfigLoader {
   ) {}
 
   public async load(reflector: IReflector) {
-    const content = await readFile(this._envPath, "utf8");
-    const values = this._envParser.parse(content);
-
-    this._loadFromValues(reflector, values);
+    this._loadFromValues(reflector, await this._getValues());
   }
 
   public loadSync(reflector: IReflector) {
-    const content = readFileSync(this._envPath, "utf8");
-    const values = this._envParser.parse(content);
+    this._loadFromValues(reflector, this._getValuesSync());
+  }
 
-    this._loadFromValues(reflector, values);
+  private async _getValues(): Promise<any> {
+    try {
+      const content = await readFile(this._envPath, "utf8");
+      return this._envParser.parse(content);
+    } catch (ex) {
+      if (this._options.required)
+        throw ex;
+    }
+
+    return {};
+  }
+
+  private _getValuesSync(): any {
+    try {
+      const content = readFileSync(this._envPath, "utf8");
+      return this._envParser.parse(content);
+    } catch (ex) {
+      if (this._options.required)
+        throw ex;
+    }
+
+    return {};
   }
 
   private _loadFromValues(reflector: IReflector, values: any) {
