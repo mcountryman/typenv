@@ -2,11 +2,11 @@ import { Key } from "./decorator";
 import { Reflector } from "./reflector";
 
 class TestConfig {
-  @Key("STRING", "value")
+  @Key({ key: "STRING", default: "value" })
   public string: string;
-  @Key("NUMBER", 420.69)
+  @Key({ key: "NUMBER", default: 420.69 })
   public number: number;
-  @Key("BOOLEAN", true)
+  @Key({ key: "BOOLEAN", default: true })
   public boolean: boolean;
 }
 

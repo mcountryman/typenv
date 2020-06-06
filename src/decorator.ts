@@ -3,26 +3,41 @@ import { ICustomMetadata } from "./reflector";
 
 export const KEY_METADATA_NAME = "typenv:key";
 
-export const Key = (
+export interface IKeyOpts {
   key: string,
-  defaultValue: any = null,
-  optional: boolean = false
-) => (target: any, propertyKey: string | symbol) => {
-  // Set default of type if not optional and defaultValue not supplied
-  if (!optional && !defaultValue)
-    defaultValue = getDefaultValue(target, propertyKey, defaultValue);
+  default?: any,
+  optional?: boolean,
+}
 
-  // Apply default value to target
-  setDefaultValue(target, propertyKey, defaultValue);
+export const Key = (opts: string | IKeyOpts) =>
+  (target: any, propertyKey: string | symbol) => {
+    if (typeof opts === "string")
+      opts = { key: opts } as IKeyOpts;
 
-  // define metadata
+    // Set default of type if not optional and defaultValue not supplied
+    if (!opts.optional && !opts.default)
+      opts.default = getDefaultValue(target, propertyKey, opts.default);
+
+    // Apply default value to target
+    setDefaultValue(target, propertyKey, opts.default);
+
+    // Set metadata
+    setMetadata(target, propertyKey, opts);
+  }
+;
+
+function setMetadata(target: any, propertyKey: string | symbol, opts: IKeyOpts) {
   Reflect.defineMetadata(
     KEY_METADATA_NAME,
-    { key, default: defaultValue, optional } as ICustomMetadata,
+    {
+      key: opts.key,
+      default: opts.default,
+      optional: opts.optional
+    } as ICustomMetadata,
     target,
     propertyKey
   );
-};
+}
 
 function getDefaultValue(
   target: any,

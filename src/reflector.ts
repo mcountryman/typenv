@@ -10,6 +10,7 @@ export interface ICustomMetadata {
    * Default value
    */
   default: any;
+
   /**
    * Is property optional
    */
@@ -21,6 +22,7 @@ export interface IMetadata extends ICustomMetadata {
    * Property name
    */
   propertyName: string;
+
   /**
    * Property type
    */
