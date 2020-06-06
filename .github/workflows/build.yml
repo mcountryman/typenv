@@ -7,11 +7,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - uses: actions/setup-node@v1
         with:
-          always-auth: true
           node-version: 13.x
-          registry-url: 'https://registry.npmjs.org'
       - run: yarn
       - run: yarn build
       - run: yarn lint
