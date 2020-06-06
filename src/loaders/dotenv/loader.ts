@@ -23,6 +23,9 @@ export class DotEnvLoader implements IConfigLoader {
     this.loadFromValues(reflector, this.getValuesSync());
   }
 
+  /**
+   * Parse .env configuration into object
+   */
   public async getValues(): Promise<any> {
     try {
       const content = await readFile(this._envPath, "utf8");
@@ -35,6 +38,9 @@ export class DotEnvLoader implements IConfigLoader {
     return {};
   }
 
+  /**
+   * Parse .env configuration into object synchronously
+   */
   public getValuesSync(): any {
     try {
       const content = readFileSync(this._envPath, "utf8");
@@ -47,6 +53,11 @@ export class DotEnvLoader implements IConfigLoader {
     return {};
   }
 
+  /**
+   * Iterate over metadata properties and assign values from environment
+   * @param reflector
+   * @param values
+   */
   public loadFromValues(reflector: Reflector, values: any) {
     for (let meta of reflector.getAllMetadata()) {
       const value = values[meta.key] ?? this._env[meta.key];
@@ -56,6 +67,11 @@ export class DotEnvLoader implements IConfigLoader {
     }
   }
 
+  /**
+   * Parse string value using `metadata.propertyType`
+   * @param meta
+   * @param value
+   */
   public getValue(meta: IMetadata, value: string) {
     switch (meta.propertyType) {
       case Date:
