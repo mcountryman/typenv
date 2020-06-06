@@ -9,11 +9,9 @@ const LINE_BREAK = /\n|\r|\r\n/;
  * https://smartmob-rfc.readthedocs.io/en/latest/2-dotenv.html
  */
 export class DotEnvParser {
-  constructor(private readonly _content: string) {}
-
-  public parse(): any {
+  public parse(content: string): any {
     // Split lines
-    return this._content
+    return content
       .split(LINE_BREAK)
       .reduce((result, line, lineNumber) => {
         // Skip empty lines

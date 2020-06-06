@@ -1,80 +1,28 @@
-import { ConfigLoader, IConfigLoader } from "./loader";
-import { ConfigParser, IConfigParser } from "./parser";
-import { ConfigPathResolver, IConfigPathResolver } from "./resolve_path";
-import { IConfigReflector } from "./reflect";
-import { EnvResolver, IEnvResolver } from "./resolve_env";
-import { ConfigReflector } from "./impl/config_reflector";
+import { createLoader, IConfigLoader, LoaderOptions } from "./loader";
+import { IReflector, Reflector } from "./reflector";
 
 export * from "./loader";
-export * from "./parser";
-export * from "./reflect";
-export * from "./resolve_path";
+export * from "./reflector";
 export * from "./decorator";
 
+export interface IConfigOptions extends LoaderOptions {}
+
 export const load = async <TConfig>(
-  ctor: { new(): TConfig },
-  loader: IConfigLoader = new ConfigLoader(),
-  parser: IConfigParser = new ConfigParser(),
-  reflector: IConfigReflector = new ConfigReflector(ctor),
-  envResolver: IEnvResolver = new EnvResolver(),
-  pathResolver: IConfigPathResolver = new ConfigPathResolver(),
+  ctor: { new (): TConfig },
+  options: IConfigOptions = { type: "dotenv" },
+  loader: IConfigLoader = createLoader(options),
+  reflector: IReflector = new Reflector(ctor)
 ): Promise<TConfig> => {
-
-  const [hasPath, path] = await pathResolver.tryResolve();
-  if (hasPath) {
-    parser.parse(await loader.load(path));
-  }
-
-  return loadConfig(
-    ctor,
-    parser,
-    reflector,
-    envResolver,
-  );
+  await loader.load(reflector);
+  return reflector.target;
 };
 
 export const loadSync = <TConfig>(
-  ctor: { new(): TConfig },
-  loader: IConfigLoader = new ConfigLoader(),
-  parser: IConfigParser = new ConfigParser(),
-  reflector: IConfigReflector = new ConfigReflector(ctor),
-  envResolver: IEnvResolver = new EnvResolver(),
-  pathResolver: IConfigPathResolver = new ConfigPathResolver(),
+  ctor: { new (): TConfig },
+  options: IConfigOptions = { type: "dotenv" },
+  loader: IConfigLoader = createLoader(options),
+  reflector: IReflector = new Reflector(ctor)
 ): TConfig => {
-
-  const [hasPath, path] = pathResolver.tryResolveSync();
-  if (hasPath) {
-    parser.parse(loader.loadSync(path));
-  }
-
-  return loadConfig(
-    ctor,
-    parser,
-    reflector,
-    envResolver,
-  );
-};
-
-function loadConfig<TConfig>(
-  ctor: { new(): TConfig },
-  parser: IConfigParser = new ConfigParser(),
-  reflector: IConfigReflector = new ConfigReflector(ctor),
-  envResolver: IEnvResolver = new EnvResolver(),
-) {
-
-  const infos = reflector.getAllMetadata();
-
-  for (let info of infos) {
-    const [hasValue, value] = envResolver.tryGetValue(info.key, info.propertyType);
-    if (!hasValue) {
-      if (!info.optional)
-        throw new Error(`Missing config option ${info.key}`);
-
-      continue;
-    }
-
-    reflector.setProperty(info.propertyName, value);
-  }
-
+  loader.loadSync(reflector);
   return reflector.target;
-}
+};

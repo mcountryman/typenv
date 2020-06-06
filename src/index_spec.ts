@@ -20,7 +20,7 @@ describe("typenv", () => {
     `,
   });
 
-  it("Should load config",  () => {
+  it("Should load config", () => {
     const config = loadSync(CustomConfig);
 
     expect(config.string).toBe("test");

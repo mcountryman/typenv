@@ -1,4 +1,4 @@
-import { DotEnvParser } from "./dotenv";
+import { DotEnvParser } from "./parser";
 
 describe("DotEnvParser", () => {
   it("Should parse .env file", () => {
@@ -12,8 +12,8 @@ describe("DotEnvParser", () => {
       # This is also a comment
     `;
 
-    const parser = new DotEnvParser(content);
-    const result = parser.parse();
+    const parser = new DotEnvParser();
+    const result = parser.parse(content);
 
     expect(result).toStrictEqual({
       test1: "value",

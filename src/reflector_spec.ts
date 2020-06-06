@@ -1,5 +1,5 @@
-import { Key } from "../decorator";
-import { ConfigReflector } from "./config_reflector";
+import { Key } from "./decorator";
+import { Reflector } from "./reflector";
 
 class TestConfig {
   @Key("STRING", "value")
@@ -10,13 +10,13 @@ class TestConfig {
   public boolean: boolean;
 }
 
-describe("ConfigReflector", () => {
+describe("Reflector", () => {
   it("Should reflect all property info", () => {
-    const reflector = new ConfigReflector(TestConfig);
+    const reflector = new Reflector(TestConfig);
     const expectedInfos = {
-      "number": { name: "NUMBER", default: 420.69, propertyType: Number, },
-      "string": { name: "STRING", default: "value", propertyType: String, },
-      "boolean": { name: "BOOLEAN", default: true, propertyType: Boolean, },
+      number: { name: "NUMBER", default: 420.69, propertyType: Number },
+      string: { name: "STRING", default: "value", propertyType: String },
+      boolean: { name: "BOOLEAN", default: true, propertyType: Boolean },
     };
 
     for (let info of reflector.getAllMetadata()) {

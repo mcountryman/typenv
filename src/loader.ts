@@ -1,19 +1,18 @@
-import { readFile } from "fs/promises";
-import { readFileSync } from "fs";
+import { IReflector } from "./reflector";
+import { IDotEnvLoaderOptions } from "./loaders/dotenv/options";
+
+export type LoaderOptions = IDotEnvLoaderOptions;
 
 export interface IConfigLoader {
-  load(fileName: string): Promise<string>;
-  loadSync(fileName: string): string;
+  load(reflector: IReflector): Promise<void>;
+  loadSync(reflector: IReflector): void;
 }
 
-export class ConfigLoader implements IConfigLoader {
-  constructor() {}
-
-  public load(fileName: string) {
-    return readFile(fileName, "utf8")
-  };
-
-  public loadSync(fileName: string): string {
-    return readFileSync(fileName, "utf8");
+export const createLoader = (options: LoaderOptions): IConfigLoader => {
+  switch (options.type) {
+    case "dotenv":
+      return new (require("./loaders/dotenv/loader").DotEnvLoader)(options);
+    default:
+      throw new Error();
   }
-}
+};
