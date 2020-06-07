@@ -22,16 +22,16 @@ jobs:
         with:
           node-version: 14
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
+      - run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
       - run: yarn
       - run: yarn build
       - run: yarn publish --new-version ${{ steps.tag.outputs.result }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish github
-        uses: actions/setup-node@v1
+      - name: Publish release commit
+        uses: ad-m/github-push-action@master
         with:
-          registry-url: 'https://npm.pkg.github.com'
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }
