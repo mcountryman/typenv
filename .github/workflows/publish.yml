@@ -20,9 +20,8 @@ jobs:
       - name: Publish npm
         uses: actions/setup-node@v1
         with:
-          always-auth: true
           node-version: 14
-          registry-url: 'https://registry.npmjs.org'
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
       - run: yarn
       - run: yarn build
       - run: yarn publish --new-version ${{ steps.tag.outputs.result }}
