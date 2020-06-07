@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           always-auth: true
-          node-version: 13.x
+          node-version: 14
           registry-url: 'https://registry.npmjs.org'
       - run: yarn
       - run: yarn build
