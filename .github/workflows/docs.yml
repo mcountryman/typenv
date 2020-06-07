@@ -8,15 +8,17 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v1
 
-      - uses:  actions/setup-node@v1
+      - name: Generate documentation
+        uses: actions/setup-node@v1
         with:
           node-version: 14
       - run: yarn
       - run: yarn doc
 
-      - name: Deploy
+      - name: Publish documentation
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
