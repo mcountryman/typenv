@@ -2,7 +2,7 @@ name: Publish
 on:
   push:
     tags:
-      - v*
+      - v*.*.*
 
 jobs:
   publish:
@@ -26,11 +26,10 @@ jobs:
       - run: git config --local user.name "GitHub Action"
       - run: yarn
       - run: yarn build
-      - run: yarn publish --new-version ${{ steps.tag.outputs.result }}
+      - run: >-
+          yarn publish \
+            --tag latest \
+            --new-version ${{ steps.tag.outputs.result }} \
+            --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Publish release commit
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }
