@@ -18,13 +18,5 @@
   "exclude": [
     "**/*_spec.ts",
     "node_modules"
-  ],
-  "typedocOptions": {
-    "out": "docs",
-    "mode": "modules",
-    "readme": "./README.md",
-    "exclude": "**/*_spec.ts",
-    "entryPoint": "\"index\"",
-    "inputFiles": ["./src"]
-  }
+  ]
 }

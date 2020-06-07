@@ -5,13 +5,9 @@ export * from "./loader";
 export * from "./reflector";
 export * from "./decorator";
 
-export interface IConfigOptions extends LoaderOptions {
-  na?: any;
-}
-
 export const load = async <TConfig>(
   ctor: new () => TConfig,
-  options: IConfigOptions = { type: "dotenv" },
+  options: LoaderOptions = {type: "dotenv"},
   loader: IConfigLoader = createLoader(options),
   reflector = new Reflector(ctor)
 ): Promise<TConfig> => {
@@ -21,7 +17,7 @@ export const load = async <TConfig>(
 
 export const loadSync = <TConfig>(
   ctor: new () => TConfig,
-  options: IConfigOptions = { type: "dotenv" },
+  options: LoaderOptions = {type: "dotenv"},
   loader: IConfigLoader = createLoader(options),
   reflector = new Reflector(ctor)
 ): TConfig => {

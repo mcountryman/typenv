@@ -1,0 +1,10 @@
+{
+  "out": "docs",
+  "name": "Typenv Documentation",
+  "mode": "file",
+  "readme": "./README.md",
+  "exclude": "**/*_spec.ts",
+  "inputFiles": [
+    "./src"
+  ]
+}
