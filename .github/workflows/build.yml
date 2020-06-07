@@ -43,7 +43,9 @@ jobs:
             return context.payload.ref.replace(/refs\/tags\/v/, '');
 
       - name: Verify tag branch
-        run: git branch --contains tags/v${{ steps.tag.outputs.result }}
+        run: >-
+          git branch master |
+            --contains tags/v${{ steps.tag.outputs.result.replace(`"`, "") }}
 
       - name: Publish to npmjs.org
         uses: actions/setup-node@v1
