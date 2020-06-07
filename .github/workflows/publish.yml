@@ -22,9 +22,8 @@ jobs:
         with:
           node-version: 14
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
-      - run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+      - run: git config --local user.email "action@github.com"
+      - run: git config --local user.name "GitHub Action"
       - run: yarn
       - run: yarn build
       - run: yarn publish --new-version ${{ steps.tag.outputs.result }}
