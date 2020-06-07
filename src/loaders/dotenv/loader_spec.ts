@@ -18,13 +18,11 @@ describe("DotEnvLoader", () => {
     const arrayMeta = { ...meta, propertyType: Array };
     const objectMeta = { ...meta, propertyType: Object };
 
-    const dateActual = new Date();
     const stringActual = "string";
     const numberActual = 420.69;
-    const arrayActual = [dateActual, stringActual, numberActual];
-    const objectActual = { dateActual, stringActual, numberActual };
+    const arrayActual = [ stringActual, numberActual ];
+    const objectActual = { stringActual, numberActual };
 
-    const dateExpected = loader.getValue(dateMeta, dateActual.toString());
     const stringExpected = loader.getValue(stringMeta, stringActual.toString());
     const numberExpected = loader.getValue(numberMeta, numberActual.toString());
     const arrayExpected = loader.getValue(
@@ -36,7 +34,6 @@ describe("DotEnvLoader", () => {
       JSON.stringify(objectActual)
     );
 
-    expect(dateActual).toBe(dateExpected);
     expect(stringActual).toBe(stringExpected);
     expect(numberActual).toBe(numberExpected);
     expect(arrayActual).toStrictEqual(arrayExpected);

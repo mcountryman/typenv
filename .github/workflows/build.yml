@@ -10,7 +10,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           always-auth: true
-          node-version: 13.x
+          node-version: 14.x
           registry-url: 'https://registry.npmjs.org'
       - run: yarn
       - run: yarn build
@@ -20,15 +20,3 @@ jobs:
       - uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: build
-
