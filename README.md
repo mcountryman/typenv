@@ -1,9 +1,9 @@
 <h1 align="center">typenv</h1>
 <p align="center"> 
   <a href="https://codecov.io/gh/mcountryman/typenv" target="_blank">
-    <img src="https://codecov.io/gh/mcountryman/typenv/branch/master/graph/badge.svg" alt="codecov" />
+    <img alt="Codecov" src="https://img.shields.io/codecov/c/github/mcountryman/typenv?style=flat-square">
   </a>
-  <img src="https://github.com/mcountryman/typenv/workflows/Build/badge.svg" alt="build" />
+  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/mcountryman/typenv/Build?style=flat-square">
 </p>
 
 Typenv intends to provide .env configuration with type safety in mind.
