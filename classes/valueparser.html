@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IDotEnvLoaderOptions | Typenv Documentation</title>
+	<title>ValueParser | Typenv Documentation</title>
 	<meta name="description" content="Documentation for Typenv Documentation">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="idotenvloaderoptions.html">IDotEnvLoaderOptions</a>
+					<a href="valueparser.html">ValueParser</a>
 				</li>
 			</ul>
-			<h1>Interface IDotEnvLoaderOptions</h1>
+			<h1>Class ValueParser</h1>
 		</div>
 	</div>
 </header>
@@ -70,12 +70,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IDotEnvLoaderOptions</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<a href="iloaderoptions.html" class="tsd-signature-type">ILoaderOptions</a>
-							</li>
-						</ul>
+						<span class="target">ValueParser</span>
 					</li>
 				</ul>
 			</section>
@@ -84,36 +79,48 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="idotenvloaderoptions.html#required" class="tsd-kind-icon">required</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="idotenvloaderoptions.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="valueparser.html#parse" class="tsd-kind-icon">parse</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="required" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> required</h3>
-					<div class="tsd-signature tsd-kind-icon">required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/0181419/src/loaders/dotenv/options.ts#L3">loaders/dotenv/options.ts:3</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="type" class="tsd-anchor"></a>
-					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"dotenv"</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/0181419/src/loaders/dotenv/options.ts#L2">loaders/dotenv/options.ts:2</a></li>
-						</ul>
-					</aside>
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="parse" class="tsd-anchor"></a>
+					<h3>parse</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">parse<span class="tsd-signature-symbol">(</span>meta<span class="tsd-signature-symbol">: </span><a href="../interfaces/imetadata.html" class="tsd-signature-type">IMetadata</a>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/0181419/src/loaders/dotenv/value_parser.ts#L9">loaders/dotenv/value_parser.ts:9</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Parse string value using <code>metadata.propertyType</code></p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>meta: <a href="../interfaces/imetadata.html" class="tsd-signature-type">IMetadata</a></h5>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -128,46 +135,43 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="../classes/dotenvloader.html" class="tsd-kind-icon">Dot<wbr>Env<wbr>Loader</a>
+						<a href="dotenvloader.html" class="tsd-kind-icon">Dot<wbr>Env<wbr>Loader</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="../classes/dotenvparser.html" class="tsd-kind-icon">Dot<wbr>Env<wbr>Parser</a>
+						<a href="dotenvparser.html" class="tsd-kind-icon">Dot<wbr>Env<wbr>Parser</a>
 					</li>
 					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="../classes/reflector.html" class="tsd-kind-icon">Reflector</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/valueparser.html" class="tsd-kind-icon">Value<wbr>Parser</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="iconfigloader.html" class="tsd-kind-icon">IConfig<wbr>Loader</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="icustommetadata.html" class="tsd-kind-icon">ICustom<wbr>Metadata</a>
+						<a href="reflector.html" class="tsd-kind-icon">Reflector</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="idotenvloaderoptions.html" class="tsd-kind-icon">IDot<wbr>Env<wbr>Loader<wbr>Options</a>
+					<li class="current tsd-kind-class">
+						<a href="valueparser.html" class="tsd-kind-icon">Value<wbr>Parser</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="idotenvloaderoptions.html#required" class="tsd-kind-icon">required</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="idotenvloaderoptions.html#type" class="tsd-kind-icon">type</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="valueparser.html#parse" class="tsd-kind-icon">parse</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface">
-						<a href="ikeyopts.html" class="tsd-kind-icon">IKey<wbr>Opts</a>
+						<a href="../interfaces/iconfigloader.html" class="tsd-kind-icon">IConfig<wbr>Loader</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="iloaderoptions.html" class="tsd-kind-icon">ILoader<wbr>Options</a>
+						<a href="../interfaces/icustommetadata.html" class="tsd-kind-icon">ICustom<wbr>Metadata</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="imetadata.html" class="tsd-kind-icon">IMetadata</a>
+						<a href="../interfaces/idotenvloaderoptions.html" class="tsd-kind-icon">IDot<wbr>Env<wbr>Loader<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/ikeyopts.html" class="tsd-kind-icon">IKey<wbr>Opts</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/iloaderoptions.html" class="tsd-kind-icon">ILoader<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/imetadata.html" class="tsd-kind-icon">IMetadata</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#loaderoptions" class="tsd-kind-icon">Loader<wbr>Options</a>

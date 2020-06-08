@@ -97,16 +97,16 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="dotenvloader.html#_envparser" class="tsd-kind-icon">_env<wbr>Parser</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="dotenvloader.html#_envpath" class="tsd-kind-icon">_env<wbr>Path</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="dotenvloader.html#_options" class="tsd-kind-icon">_options</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="dotenvloader.html#_valueparser" class="tsd-kind-icon">_value<wbr>Parser</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="dotenvloader.html#getvalue" class="tsd-kind-icon">get<wbr>Value</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="dotenvloader.html#getvalues" class="tsd-kind-icon">get<wbr>Values</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="dotenvloader.html#getvaluessync" class="tsd-kind-icon">get<wbr>Values<wbr>Sync</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="dotenvloader.html#load" class="tsd-kind-icon">load</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="dotenvloader.html#loadfromvalues" class="tsd-kind-icon">load<wbr>From<wbr>Values</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="dotenvloader.html#loadfromvalues" class="tsd-kind-icon">load<wbr>From<wbr>Values</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="dotenvloader.html#loadsync" class="tsd-kind-icon">load<wbr>Sync</a></li>
 							</ul>
 						</section>
@@ -119,13 +119,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Dot<wbr>Env<wbr>Loader<span class="tsd-signature-symbol">(</span>_options<span class="tsd-signature-symbol">: </span><a href="../interfaces/idotenvloaderoptions.html" class="tsd-signature-type">IDotEnvLoaderOptions</a>, _env<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{}</span>, _envPath<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, _envParser<span class="tsd-signature-symbol">?: </span><a href="dotenvparser.html" class="tsd-signature-type">DotEnvParser</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="dotenvloader.html" class="tsd-signature-type">DotEnvLoader</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Dot<wbr>Env<wbr>Loader<span class="tsd-signature-symbol">(</span>_options<span class="tsd-signature-symbol">: </span><a href="../interfaces/idotenvloaderoptions.html" class="tsd-signature-type">IDotEnvLoaderOptions</a>, _env<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{}</span>, _envPath<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, _envParser<span class="tsd-signature-symbol">?: </span><a href="dotenvparser.html" class="tsd-signature-type">DotEnvParser</a>, _valueParser<span class="tsd-signature-symbol">?: </span><a href="valueparser.html" class="tsd-signature-type">ValueParser</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="dotenvloader.html" class="tsd-signature-type">DotEnvLoader</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L9">loaders/dotenv/loader.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/0181419/src/loaders/dotenv/loader.ts#L10">loaders/dotenv/loader.ts:10</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -147,6 +147,9 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> _envParser: <a href="dotenvparser.html" class="tsd-signature-type">DotEnvParser</a><span class="tsd-signature-symbol"> = new DotEnvParser()</span></h5>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> _valueParser: <a href="valueparser.html" class="tsd-signature-type">ValueParser</a><span class="tsd-signature-symbol"> = new ValueParser()</span></h5>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="dotenvloader.html" class="tsd-signature-type">DotEnvLoader</a></h4>
 						</li>
@@ -161,7 +164,7 @@
 					<div class="tsd-signature tsd-kind-icon">_env<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L13">loaders/dotenv/loader.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/0181419/src/loaders/dotenv/loader.ts#L14">loaders/dotenv/loader.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -179,7 +182,7 @@
 					<div class="tsd-signature tsd-kind-icon">_env<wbr>Parser<span class="tsd-signature-symbol">:</span> <a href="dotenvparser.html" class="tsd-signature-type">DotEnvParser</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L15">loaders/dotenv/loader.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/0181419/src/loaders/dotenv/loader.ts#L16">loaders/dotenv/loader.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -189,7 +192,7 @@
 					<div class="tsd-signature tsd-kind-icon">_env<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L14">loaders/dotenv/loader.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/0181419/src/loaders/dotenv/loader.ts#L15">loaders/dotenv/loader.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -199,46 +202,23 @@
 					<div class="tsd-signature tsd-kind-icon">_options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/idotenvloaderoptions.html" class="tsd-signature-type">IDotEnvLoaderOptions</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L11">loaders/dotenv/loader.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/0181419/src/loaders/dotenv/loader.ts#L12">loaders/dotenv/loader.ts:12</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_valueparser" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> _value<wbr>Parser</h3>
+					<div class="tsd-signature tsd-kind-icon">_value<wbr>Parser<span class="tsd-signature-symbol">:</span> <a href="valueparser.html" class="tsd-signature-type">ValueParser</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/0181419/src/loaders/dotenv/loader.ts#L17">loaders/dotenv/loader.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getvalue" class="tsd-anchor"></a>
-					<h3>get<wbr>Value</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Value<span class="tsd-signature-symbol">(</span>meta<span class="tsd-signature-symbol">: </span><a href="../interfaces/imetadata.html" class="tsd-signature-type">IMetadata</a>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L73">loaders/dotenv/loader.ts:73</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Parse string value using <code>metadata.propertyType</code></p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>meta: <a href="../interfaces/imetadata.html" class="tsd-signature-type">IMetadata</a></h5>
-								</li>
-								<li>
-									<h5>value: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getvalues" class="tsd-anchor"></a>
 					<h3>get<wbr>Values</h3>
@@ -249,7 +229,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L29">loaders/dotenv/loader.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/0181419/src/loaders/dotenv/loader.ts#L31">loaders/dotenv/loader.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -271,7 +251,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L43">loaders/dotenv/loader.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/0181419/src/loaders/dotenv/loader.ts#L45">loaders/dotenv/loader.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -294,7 +274,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/iconfigloader.html">IConfigLoader</a>.<a href="../interfaces/iconfigloader.html#load">load</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L18">loaders/dotenv/loader.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/0181419/src/loaders/dotenv/loader.ts#L20">loaders/dotenv/loader.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -307,17 +287,17 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a name="loadfromvalues" class="tsd-anchor"></a>
-					<h3>load<wbr>From<wbr>Values</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> load<wbr>From<wbr>Values</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
 						<li class="tsd-signature tsd-kind-icon">load<wbr>From<wbr>Values<span class="tsd-signature-symbol">(</span>reflector<span class="tsd-signature-symbol">: </span><a href="reflector.html" class="tsd-signature-type">Reflector</a>, values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L59">loaders/dotenv/loader.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/0181419/src/loaders/dotenv/loader.ts#L61">loaders/dotenv/loader.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -351,7 +331,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/iconfigloader.html">IConfigLoader</a>.<a href="../interfaces/iconfigloader.html#loadsync">loadSync</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L22">loaders/dotenv/loader.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/0181419/src/loaders/dotenv/loader.ts#L24">loaders/dotenv/loader.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -396,8 +376,8 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="dotenvloader.html#_options" class="tsd-kind-icon">_options</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="dotenvloader.html#getvalue" class="tsd-kind-icon">get<wbr>Value</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="dotenvloader.html#_valueparser" class="tsd-kind-icon">_value<wbr>Parser</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="dotenvloader.html#getvalues" class="tsd-kind-icon">get<wbr>Values</a>
@@ -408,7 +388,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="dotenvloader.html#load" class="tsd-kind-icon">load</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="dotenvloader.html#loadfromvalues" class="tsd-kind-icon">load<wbr>From<wbr>Values</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -424,6 +404,9 @@
 					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="reflector.html" class="tsd-kind-icon">Reflector</a>
 					</li>
+					<li class=" tsd-kind-class">
+						<a href="valueparser.html" class="tsd-kind-icon">Value<wbr>Parser</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/iconfigloader.html" class="tsd-kind-icon">IConfig<wbr>Loader</a>
 					</li>
@@ -437,10 +420,16 @@
 						<a href="../interfaces/ikeyopts.html" class="tsd-kind-icon">IKey<wbr>Opts</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="../interfaces/iloaderoptions.html" class="tsd-kind-icon">ILoader<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="../interfaces/imetadata.html" class="tsd-kind-icon">IMetadata</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#loaderoptions" class="tsd-kind-icon">Loader<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#loadertype" class="tsd-kind-icon">Loader<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#comment" class="tsd-kind-icon">COMMENT</a>
