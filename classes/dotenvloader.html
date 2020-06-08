@@ -1,0 +1,512 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>DotEnvLoader | Typenv Documentation</title>
+	<meta name="description" content="Documentation for Typenv Documentation">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">Typenv Documentation</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="dotenvloader.html">DotEnvLoader</a>
+				</li>
+			</ul>
+			<h1>Class DotEnvLoader</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">DotEnvLoader</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/iconfigloader.html" class="tsd-signature-type">IConfigLoader</a></li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="dotenvloader.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="dotenvloader.html#_env" class="tsd-kind-icon">_env</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="dotenvloader.html#_envparser" class="tsd-kind-icon">_env<wbr>Parser</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="dotenvloader.html#_envpath" class="tsd-kind-icon">_env<wbr>Path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="dotenvloader.html#_options" class="tsd-kind-icon">_options</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="dotenvloader.html#getvalue" class="tsd-kind-icon">get<wbr>Value</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="dotenvloader.html#getvalues" class="tsd-kind-icon">get<wbr>Values</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="dotenvloader.html#getvaluessync" class="tsd-kind-icon">get<wbr>Values<wbr>Sync</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="dotenvloader.html#load" class="tsd-kind-icon">load</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="dotenvloader.html#loadfromvalues" class="tsd-kind-icon">load<wbr>From<wbr>Values</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="dotenvloader.html#loadsync" class="tsd-kind-icon">load<wbr>Sync</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Dot<wbr>Env<wbr>Loader<span class="tsd-signature-symbol">(</span>_options<span class="tsd-signature-symbol">: </span><a href="../interfaces/idotenvloaderoptions.html" class="tsd-signature-type">IDotEnvLoaderOptions</a>, _env<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{}</span>, _envPath<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, _envParser<span class="tsd-signature-symbol">?: </span><a href="dotenvparser.html" class="tsd-signature-type">DotEnvParser</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="dotenvloader.html" class="tsd-signature-type">DotEnvLoader</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L9">loaders/dotenv/loader.ts:9</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_options: <a href="../interfaces/idotenvloaderoptions.html" class="tsd-signature-type">IDotEnvLoaderOptions</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> _env: <span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> = process.env</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-index-signature">
+											<h5><span class="tsd-signature-symbol">[</span>index: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> _envPath: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = join(process.cwd(), &quot;.env&quot;)</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> _envParser: <a href="dotenvparser.html" class="tsd-signature-type">DotEnvParser</a><span class="tsd-signature-symbol"> = new DotEnvParser()</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="dotenvloader.html" class="tsd-signature-type">DotEnvLoader</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_env" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> _env</h3>
+					<div class="tsd-signature tsd-kind-icon">_env<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L13">loaders/dotenv/loader.ts:13</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>index: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_envparser" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> _env<wbr>Parser</h3>
+					<div class="tsd-signature tsd-kind-icon">_env<wbr>Parser<span class="tsd-signature-symbol">:</span> <a href="dotenvparser.html" class="tsd-signature-type">DotEnvParser</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L15">loaders/dotenv/loader.ts:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_envpath" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> _env<wbr>Path</h3>
+					<div class="tsd-signature tsd-kind-icon">_env<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L14">loaders/dotenv/loader.ts:14</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_options" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> _options</h3>
+					<div class="tsd-signature tsd-kind-icon">_options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/idotenvloaderoptions.html" class="tsd-signature-type">IDotEnvLoaderOptions</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L11">loaders/dotenv/loader.ts:11</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getvalue" class="tsd-anchor"></a>
+					<h3>get<wbr>Value</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Value<span class="tsd-signature-symbol">(</span>meta<span class="tsd-signature-symbol">: </span><a href="../interfaces/imetadata.html" class="tsd-signature-type">IMetadata</a>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L73">loaders/dotenv/loader.ts:73</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Parse string value using <code>metadata.propertyType</code></p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>meta: <a href="../interfaces/imetadata.html" class="tsd-signature-type">IMetadata</a></h5>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getvalues" class="tsd-anchor"></a>
+					<h3>get<wbr>Values</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Values<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L29">loaders/dotenv/loader.ts:29</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Parse .env configuration into object</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getvaluessync" class="tsd-anchor"></a>
+					<h3>get<wbr>Values<wbr>Sync</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Values<wbr>Sync<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L43">loaders/dotenv/loader.ts:43</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Parse .env configuration into object synchronously</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="load" class="tsd-anchor"></a>
+					<h3>load</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">load<span class="tsd-signature-symbol">(</span>reflector<span class="tsd-signature-symbol">: </span><a href="reflector.html" class="tsd-signature-type">Reflector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/iconfigloader.html">IConfigLoader</a>.<a href="../interfaces/iconfigloader.html#load">load</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L18">loaders/dotenv/loader.ts:18</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>reflector: <a href="reflector.html" class="tsd-signature-type">Reflector</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="loadfromvalues" class="tsd-anchor"></a>
+					<h3>load<wbr>From<wbr>Values</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">load<wbr>From<wbr>Values<span class="tsd-signature-symbol">(</span>reflector<span class="tsd-signature-symbol">: </span><a href="reflector.html" class="tsd-signature-type">Reflector</a>, values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L59">loaders/dotenv/loader.ts:59</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Iterate over metadata properties and assign values from environment</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>reflector: <a href="reflector.html" class="tsd-signature-type">Reflector</a></h5>
+								</li>
+								<li>
+									<h5>values: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="loadsync" class="tsd-anchor"></a>
+					<h3>load<wbr>Sync</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">load<wbr>Sync<span class="tsd-signature-symbol">(</span>reflector<span class="tsd-signature-symbol">: </span><a href="reflector.html" class="tsd-signature-type">Reflector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/iconfigloader.html">IConfigLoader</a>.<a href="../interfaces/iconfigloader.html#loadsync">loadSync</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/mcountryman/typenv/blob/277f48b/src/loaders/dotenv/loader.ts#L22">loaders/dotenv/loader.ts:22</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>reflector: <a href="reflector.html" class="tsd-signature-type">Reflector</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="dotenvloader.html" class="tsd-kind-icon">Dot<wbr>Env<wbr>Loader</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="dotenvloader.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="dotenvloader.html#_env" class="tsd-kind-icon">_env</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="dotenvloader.html#_envparser" class="tsd-kind-icon">_env<wbr>Parser</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="dotenvloader.html#_envpath" class="tsd-kind-icon">_env<wbr>Path</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="dotenvloader.html#_options" class="tsd-kind-icon">_options</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="dotenvloader.html#getvalue" class="tsd-kind-icon">get<wbr>Value</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="dotenvloader.html#getvalues" class="tsd-kind-icon">get<wbr>Values</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="dotenvloader.html#getvaluessync" class="tsd-kind-icon">get<wbr>Values<wbr>Sync</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="dotenvloader.html#load" class="tsd-kind-icon">load</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="dotenvloader.html#loadfromvalues" class="tsd-kind-icon">load<wbr>From<wbr>Values</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="dotenvloader.html#loadsync" class="tsd-kind-icon">load<wbr>Sync</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-class">
+						<a href="dotenvparser.html" class="tsd-kind-icon">Dot<wbr>Env<wbr>Parser</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="reflector.html" class="tsd-kind-icon">Reflector</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/iconfigloader.html" class="tsd-kind-icon">IConfig<wbr>Loader</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/icustommetadata.html" class="tsd-kind-icon">ICustom<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/idotenvloaderoptions.html" class="tsd-kind-icon">IDot<wbr>Env<wbr>Loader<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/ikeyopts.html" class="tsd-kind-icon">IKey<wbr>Opts</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/imetadata.html" class="tsd-kind-icon">IMetadata</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#loaderoptions" class="tsd-kind-icon">Loader<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#comment" class="tsd-kind-icon">COMMENT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#empty" class="tsd-kind-icon">EMPTY</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#key_metadata_name" class="tsd-kind-icon">KEY_<wbr>METADATA_<wbr>NAME</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#line_break" class="tsd-kind-icon">LINE_<wbr>BREAK</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#pair" class="tsd-kind-icon">PAIR</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#key" class="tsd-kind-icon">Key</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#createloader" class="tsd-kind-icon">create<wbr>Loader</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#getdefaultvalue" class="tsd-kind-icon">get<wbr>Default<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="../globals.html#load" class="tsd-kind-icon">load</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="../globals.html#loadsync" class="tsd-kind-icon">load<wbr>Sync</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#setdefaultvalue" class="tsd-kind-icon">set<wbr>Default<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#setmetadata" class="tsd-kind-icon">set<wbr>Metadata</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
