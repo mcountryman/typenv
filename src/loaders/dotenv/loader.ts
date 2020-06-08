@@ -1,5 +1,5 @@
 import { IConfigLoader } from "../../loader";
-import { Reflector, IMetadata } from "../../reflector";
+import { Reflector } from "../../reflector";
 import { DotEnvParser } from "./parser";
 import { join } from "path";
 import { readFile } from "fs/promises";
