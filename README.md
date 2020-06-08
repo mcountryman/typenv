@@ -1,6 +1,10 @@
-# typenv
-[![codecov](https://codecov.io/gh/mcountryman/typenv/branch/master/graph/badge.svg)](https://codecov.io/gh/mcountryman/typenv)
-![Build](https://github.com/mcountryman/typenv/workflows/Build/badge.svg)
+<h1 align="center">typenv</h1>
+<p align="center"> 
+  <a href="https://codecov.io/gh/mcountryman/typenv" target="_blank">
+    <img src="https://codecov.io/gh/mcountryman/typenv/branch/master/graph/badge.svg" alt="codecov" />
+  </a>
+  <img src="https://github.com/mcountryman/typenv/workflows/Build/badge.svg" alt="build" />
+</p>
 
 Typenv intends to provide .env configuration with type safety in mind.
 
