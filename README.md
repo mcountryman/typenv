@@ -3,7 +3,12 @@
   <a href="https://codecov.io/gh/mcountryman/typenv" target="_blank">
     <img alt="Codecov" src="https://img.shields.io/codecov/c/github/mcountryman/typenv?style=flat-square">
   </a>
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/mcountryman/typenv/Build?style=flat-square">
+  <a href="https://www.npmjs.com/package/typenv">
+    <img alt="npm (tag)" src="https://img.shields.io/npm/v/typenv/latest?style=flat-square">
+  </a>
+  <a href="https://github.com/mcountryman/typenv/actions?query=workflow%3ABuild">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/mcountryman/typenv/Build?style=flat-square">
+  </a>
 </p>
 
 Typenv intends to provide .env configuration with type safety in mind.
