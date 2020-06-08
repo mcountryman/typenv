@@ -5,6 +5,7 @@ import { join } from "path";
 import { readFile } from "fs/promises";
 import { readFileSync } from "fs";
 import { IDotEnvLoaderOptions } from "./options";
+import { ValueParser } from "./value_parser";
 
 export class DotEnvLoader implements IConfigLoader {
   constructor(
@@ -12,7 +13,8 @@ export class DotEnvLoader implements IConfigLoader {
 
     private readonly _env: { [index: string]: string } = process.env,
     private readonly _envPath: string = join(process.cwd(), ".env"),
-    private readonly _envParser: DotEnvParser = new DotEnvParser()
+    private readonly _envParser = new DotEnvParser(),
+    private readonly _valueParser = new ValueParser()
   ) {}
 
   public async load(reflector: Reflector) {
@@ -56,31 +58,12 @@ export class DotEnvLoader implements IConfigLoader {
    * @param reflector
    * @param values
    */
-  public loadFromValues(reflector: Reflector, values: any) {
+  private loadFromValues(reflector: Reflector, values: any) {
     for (const meta of reflector.getAllMetadata()) {
       const value = values[meta.key] ?? this._env[meta.key];
 
       if (value !== undefined)
-        reflector.setProperty(meta, this.getValue(meta, value));
-    }
-  }
-
-  /**
-   * Parse string value using `metadata.propertyType`
-   * @param meta
-   * @param value
-   */
-  public getValue(meta: IMetadata, value: string) {
-    switch (meta.propertyType) {
-      case Date:
-        return new Date(value);
-      case Number:
-        return parseFloat(value);
-      case String:
-        // TODO: Parse quotes
-        return value;
-      default:
-        return JSON.parse(value);
+        reflector.setProperty(meta, this._valueParser.parse(meta, value));
     }
   }
 }

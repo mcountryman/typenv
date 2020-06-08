@@ -1,7 +1,12 @@
 import { Reflector } from "./reflector";
 import { IDotEnvLoaderOptions } from "./loaders/dotenv/options";
 
-export type LoaderOptions = IDotEnvLoaderOptions;
+type LoaderOptions = IDotEnvLoaderOptions;
+type LoaderType = LoaderOptions["type"];
+
+export interface ILoaderOptions extends LoaderOptions {
+  type: LoaderType;
+}
 
 export interface IConfigLoader {
   load(reflector: Reflector): Promise<void>;

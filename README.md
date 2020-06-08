@@ -25,13 +25,13 @@ DB_PORT=1234
 ```
 > src/database_config.ts
 ```typescript
-import { load, loadSync, ConfigProperty } from "typenv"; 
+import { load, loadSync, Key } from "typenv"; 
 
 class DatabaseConfig {
-  @ConfigProperty("DB_HOST", "localhost")
+  @Key("DB_HOST", "localhost")
   public hostname: string;
 
-  @ConfigProperty("DB_PORT", 5432)
+  @Key("DB_PORT", 5432)
   public port: number;
 }
 
