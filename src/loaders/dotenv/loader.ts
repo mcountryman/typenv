@@ -12,7 +12,7 @@ export class DotEnvLoader implements IConfigLoader {
     private readonly _options: IDotEnvLoaderOptions,
 
     private readonly _env: { [index: string]: string } = process.env,
-    private readonly _envPath: string = join(process.cwd(), ".env"),
+    private readonly _envPath: string = join(DotEnvLoader.getEnvDirectory(), ".env"),
     private readonly _envParser = new DotEnvParser(),
     private readonly _valueParser = new ValueParser()
   ) {}
@@ -65,5 +65,15 @@ export class DotEnvLoader implements IConfigLoader {
       if (value !== undefined)
         reflector.setProperty(meta, this._valueParser.parse(meta, value));
     }
+  }
+
+  private static getEnvDirectory(defaultPath?: string): string {
+    if (defaultPath)
+      return defaultPath;
+
+    if (process.env["DOTENV_CONFIG_PATH"])
+      return process.env["DOTENV_CONFIG_PATH"];
+
+    return process.cwd();
   }
 }
