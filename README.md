@@ -26,7 +26,7 @@ npm i typenv
 ## Usage
 [Documentation](https://mcountryman.github.io/typenv/)
 
-
+### Quick Start
 > .env
 ```
 DB_HOST=192.168.1.1
@@ -53,6 +53,10 @@ console.log(config.hostname);
 console.log(config.port);
 // > 1234
 ```
+
+### Configuration
+Environment variables
+* `DOTENV_CONFIG_PATH` - Location of `.env` file (defaults to `$CWD`)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what 
